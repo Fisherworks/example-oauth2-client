@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, url_for
+from flask import Flask, url_for
 from authlib.integrations.flask_client import OAuth
 
 app = Flask(__name__)
@@ -6,6 +6,10 @@ app.config['SECRET_KEY'] = 'hi there hi'
 
 oauth = OAuth(app)
 
+# the following local.aquiferre.com is something in /etc/hosts
+# that redirect traffic to 127.0.0.1, it helps when there might
+# be session storage conflict between several flask web project
+# working on same machine/browser, e.g. oAuth server and client
 oauth.register(
     name='o2',
     client_id='eVBfyD7yNJwJJ5coC0LZU4BB',
