@@ -42,6 +42,6 @@ def authorize():
     profile = resp
     # do something with the token and profile
     # print(token)
-    return profile.text
+    return 'the user is {} </br>And its token from auth server is {}'.format(profile.text, token)
 
 app.run(port=7070, debug=True)
